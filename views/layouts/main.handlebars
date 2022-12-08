@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
+        <link href="/css/reset.css" type="text/css" rel="stylesheet">
+        <link href="/css/custom.css" type="text/css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Supabase Test</title>
+        <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        {{#if logged_in}}
+        <script defer src="/js/logout.js"></script>
+        {{else}}
+        <script defer src="/js/login.js"></script>
+        {{/if}}
+    </head>
+    <body>
+        <header>
+            <div class="fixedheadnav">
+                <div class="header">
+                    <h1 class="logo">Supabase Test</h1>
+                </div>
+                <nav class="navigation">
+                    <ul id="navigation">
+                        <li><button id="home-page" class="reset-button"><a href="/" class="reset-link">Home Page</a></button></li>
+                        <li><button id="dashboard" class="reset-button"><a href="/" class="reset-link">Your Dashboard</a></button></li>
+                        {{#if logged_in}}
+                        <li><button id="logout" class="reset-button">Logout</button></li>
+                        {{else}}
+                        <li><button id="login" class="reset-button"><a href="/login" class="reset-link">Login</a></button></li>
+                        {{/if}}
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            {{{ body }}}
+        </main>
+        
+        <footer>
+        </footer>
+        <div class="footer-helper"></div>
+    </body>
+</html>
